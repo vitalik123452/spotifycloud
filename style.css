@@ -53,3 +53,18 @@ body {
     font-size: 16px;
     color: #333;
 }
+.player {
+    max-width: 600px;
+    margin: 0 auto 50px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#seekBar {
+    width: 100%;
+    margin-top: 15px;
+    cursor: pointer;
+}
