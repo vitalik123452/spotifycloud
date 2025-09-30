@@ -35,3 +35,16 @@ registerBtn.addEventListener('click', () => {
     // Успішна реєстрація
     alert(`Реєстрація успішна!\nІм'я: ${name}\nEmail: ${email}`);
 });
+
+const player = document.getElementById("player");
+const seekBar = document.getElementById("seekBar");
+
+player.addEventListener("timeupdate", () => {
+    const value = (player.currentTime / player.duration) * 100;
+    seekBar.value = value;
+});
+
+seekBar.addEventListener("input", () => {
+    const time = (seekBar.value / 100) * player.duration;
+    player.currentTime = time;
+});
