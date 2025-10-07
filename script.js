@@ -1,50 +1,30 @@
-const playlistItems = document.querySelectorAll('.playlist-item');
-const registerBtn = document.getElementById('registerBtn')
+const audio = document.getElementById('audio');
+const currentTrack = document.getElementById('current-track');
+const playPauseBtn = document.getElementById('playPause');
+const cards = document.querySelectorAll('.playlist-card');
+let currentSrc = '';
 
-playlistItems.forEach(item => {
-    item.addEventListener('click', () => {
-        const playlistName = item.dataset.name;
-        alert(`Ви вибрали: ${playlistName}`);
+cards.forEach(card => {
+    card.addEventListener('click', () => {
+        const src = card.getAttribute('data-src');
+        const title = card.querySelector('h3').textContent;
+
+        if (src !== currentSrc) {
+            currentSrc = src;
+            audio.src = src;
+            currentTrack.textContent = 'Зараз грає: ' + title;
+            audio.play();
+            playPauseBtn.textContent = '⏸️ Пауза';
+        }
     });
 });
 
-registerBtn.addEventListener('click', () => {
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value.trim();
-
-    // Перевірка на порожні поля
-    if (!name || !email || !password) {
-        alert('Будь ласка, заповніть усі поля!');
-        return;
+playPauseBtn.addEventListener('click', () => {
+    if (audio.paused) {
+        audio.play();
+        playPauseBtn.textContent = '⏸️ Пауза';
+    } else {
+        audio.pause();
+        playPauseBtn.textContent = '▶️ Відтворити';
     }
-
-    // Перевірка валідності email
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-        alert('Введіть правильний email!');
-        return;
-    }
-
-    // Перевірка довжини пароля
-    if (password.length < 6) {
-        alert('Пароль повинен містити щонайменше 6 символів!');
-        return;
-    }
-
-    // Успішна реєстрація
-    alert(`Реєстрація успішна!\nІм'я: ${name}\nEmail: ${email}`);
-});
-
-const player = document.getElementById("player");
-const seekBar = document.getElementById("seekBar");
-
-player.addEventListener("timeupdate", () => {
-    const value = (player.currentTime / player.duration) * 100;
-    seekBar.value = value;
-});
-
-seekBar.addEventListener("input", () => {
-    const time = (seekBar.value / 100) * player.duration;
-    player.currentTime = time;
 });

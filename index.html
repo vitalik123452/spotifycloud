@@ -1,51 +1,64 @@
 <!DOCTYPE html>
 <html lang="uk">
-<html lang="uk">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Плейлісти</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="playlists.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Плейлісти</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <title>Музичний Плеєр</title>
     <link rel="stylesheet" href="style.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
+    <header class="header">
+        <h1 class="logo">🎧 MyMusic</h1>
+        <nav class="nav">
+            <a href="index.html" class="active">Головна</a>
+            <a href="register.html">Реєстрація</a>
+        </nav>
+    </header>
 
-    <h1 class="page-title">Мої плейлісти</h1>
+    <main class="playlist-container">
+        <h2>Мої плейлісти</h2>
 
-    <div class="playlist-container">
-        <div class="playlist-item" data-name="Ранковий плейлист">
-            <img src="https://forkids.org.ua/wp-content/uploads/2023/12/novi-kartynky-dobrogo-ranku-29-%E2%80%94-velyke-1024x576.jpeg" alt="Ранковий плейлист">
-            <h3>Ранковий плейлист</h3>
+        <div class="playlist">
+            <h3>Поп</h3>
+            <div class="track">
+                <p>Imagine Dragons - Believer</p>
+                <audio controls>
+          <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        </audio>
+            </div>
+            <div class="track">
+                <p>Ed Sheeran - Shape of You</p>
+                <audio controls>
+          <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+        </audio>
+            </div>
         </div>
-        <div class="playlist-item" data-name="Вечірній плейлист">
-            <img src="https://bigkyiv.com.ua/wp-content/uploads/2024/02/428615055_421584270246857_4698467117701794964_n.jpg" alt="Вечірній плейлист">
-            <h3>Вечірній плейлист</h3>
-        </div>
-        <div class="playlist-item" data-name="Тренувальний плейлист">
-            <img src="https://www.skulptor.org.ua/img/programs/personal-train.webp" alt="Тренувальний плейлист">
-            <h3>Тренувальний плейлист</h3>
-        </div>
-        <div class="playlist-item" data-name="Релакс плейлист">
-            <img src="https://pic.rutubelist.ru/video/b4/e6/b4e6f459c7dfb42ee554847327f4b2d0.jpg" alt="Релакс плейлист">
-            <h3>Релакс плейлист</h3>
-        </div>
-    </div>
-    
-<div class="player">
-    <audio id="player" controls>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-    </audio>
-    <input type="range" id="seekBar" value="0" min="0" max="100" step="1">
-</div>
 
-    <script src="playlists.js"></script>
+        <div class="playlist">
+            <h3>Relax</h3>
+            <div class="track">
+                <p>Calm Vibes</p>
+                <audio controls>
+          <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mpeg">
+        </audio>
+            </div>
+            <div class="track">
+                <p>Chill Evening</p>
+                <audio controls>
+          <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" type="audio/mpeg">
+        </audio>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 MyMusic | Віталік Копитко</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
