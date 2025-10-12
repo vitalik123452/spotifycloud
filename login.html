@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="uk">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Увійти — Spotify Clone</title>
+    <style>
+         :root {
+            --bg: #121212;
+            --card: #181818;
+            --accent: #1DB954;
+            --muted: #b3b3b3;
+            --glass: rgba(255, 255, 255, 0.03);
+            font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+        }
+        
+        * {
+            box-sizing: border-box
+        }
+        
+        html,
+        body {
+            height: 100%
+        }
+        
+        body {
+            margin: 0;
+            background: radial-gradient(1200px 600px at 10% 10%, rgba(29, 185, 84, 0.06), transparent), linear-gradient(180deg, #0f0f0f 0%, #0b0b0b 100%);
+            color: #fff;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        
+        .card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+            width: 100%;
+            max-width: 420px;
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 6px
+        }
+        
+        p.lead {
+            color: var(--muted);
+            margin-top: 0;
+            margin-bottom: 18px
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+        
+        label {
+            font-size: 13px;
+            color: var(--muted)
+        }
+        
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: var(--glass);
+            color: #fff;
+            outline: none;
+            font-size: 15px
+        }
+        
+        input:focus {
+            box-shadow: 0 0 0 4px rgba(29, 185, 84, 0.06);
+            border-color: rgba(29, 185, 84, 0.6)
+        }
+        
+        .actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 6px
+        }
+        
+        .btn {
+            background: #00cc88;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            padding: 10px 20px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.4);
+        }
+        
+        .btn:hover {
+            background: #00aa70;
+            transform: scale(1.07);
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.7);
+        }
+        
+        .small {
+            font-size: 13px;
+            color: var(--muted)
+        }
+        
+        a.link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600
+        }
+        
+        .error {
+            color: #ff6b6b;
+            font-size: 13px;
+            margin-top: 6px
+        }
+        
+        .success {
+            color: #4ade80;
+            font-size: 13px;
+            margin-top: 6px
+        }
+        
+        .back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--muted);
+            text-decoration: none;
+            padding: 8px;
+            border-radius: 8px;
+            margin-top: 12px;
+        }
+        
+        .back:hover {
+            background: rgba(255, 255, 255, 0.02)
+        }
+    </style>
+</head>
+
+<body>
+    <section class="card">
+        <h1>Увійти в Spotify Clone</h1>
+        <p class="lead">Введіть ваш email та пароль, щоб увійти.</p>
+        <form id="loginForm" novalidate>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="name@example.com" required />
+
+
+            <label for="password">Пароль</label>
+            <input id="password" name="password" type="password" placeholder="Ваш пароль" required />
+
+
+            <div style="display:flex;align-items:center;gap:10px;margin-top:6px">
+                <input id="showPass" type="checkbox" /> <label for="showPass" class="small">Показати пароль</label>
+            </div>
+
+
+            <div class="actions">
+                <div class="small">Нема акаунта? <a class="link" href="register.html">Зареєструватися</a></div>
+                <button type="submit" class="btn">Увійти</button>
+            </div>
+
+
+            <div id="message" aria-live="polite"></div>
+        </form>
+        <a class="back" href="index.html">← На головну</a>
+    </section>
+
+
+    <script>
