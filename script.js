@@ -1,30 +1,16 @@
-const audio = document.getElementById('audio');
-const currentTrack = document.getElementById('current-track');
-const playPauseBtn = document.getElementById('playPause');
-const cards = document.querySelectorAll('.playlist-card');
-let currentSrc = '';
+const playBtn = document.getElementById("playBtn");
+let isPlaying = false;
 
-cards.forEach(card => {
-    card.addEventListener('click', () => {
-        const src = card.getAttribute('data-src');
-        const title = card.querySelector('h3').textContent;
+playBtn.addEventListener("click", () => {
+    isPlaying = !isPlaying;
 
-        if (src !== currentSrc) {
-            currentSrc = src;
-            audio.src = src;
-            currentTrack.textContent = 'Зараз грає: ' + title;
-            audio.play();
-            playPauseBtn.textContent = '⏸️ Пауза';
-        }
-    });
-});
-
-playPauseBtn.addEventListener('click', () => {
-    if (audio.paused) {
-        audio.play();
-        playPauseBtn.textContent = '⏸️ Пауза';
+    if (isPlaying) {
+        playBtn.textContent = "⏸️ Пауза";
+        playBtn.classList.add("playing");
+        console.log("Музика грає (симуляція)");
     } else {
-        audio.pause();
-        playPauseBtn.textContent = '▶️ Відтворити';
+        playBtn.textContent = "▶️ Відтворити";
+        playBtn.classList.remove("playing");
+        console.log("Музика на паузі (симуляція)");
     }
 });

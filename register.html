@@ -2,111 +2,166 @@
 <html lang="uk">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Реєстрація</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotifycloud — Реєстрація</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: 'Montserrat', sans-serif;
-            background: #f3f4f6;
-            /* 🔹 фон сторінки — встав свій */
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(circle at top, #0c1016 0%, #1a1f29 80%);
+            color: #dfffe0;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            height: 100vh;
+            justify-content: center;
+            min-height: 100vh;
             margin: 0;
         }
         
+        header {
+            position: fixed;
+            top: 20px;
+            left: 40px;
+            font-size: 26px;
+            font-weight: 600;
+            color: #00ff80;
+            text-shadow: 0 0 12px #00ff80;
+            z-index: 1000;
+        }
+        /* Кнопки у верхньому правому куті */
+        
+        .top-buttons {
+            position: fixed;
+            top: 20px;
+            right: 40px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+        
+        .btn {
+            background: #00cc88;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            padding: 10px 20px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.4);
+        }
+        
+        .btn:hover {
+            background: #00aa70;
+            transform: scale(1.07);
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.7);
+        }
+        
         .register-box {
-            background: #ffffff;
-            /* 🔹 фон блоку */
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.15);
+            padding: 40px 50px;
             width: 350px;
+            text-align: center;
+            backdrop-filter: blur(6px);
+            margin-top: 100px;
         }
         
         .register-box h2 {
-            text-align: center;
-            margin-bottom: 24px;
-            font-weight: 600;
-            color: #333333;
-            /* 🔹 колір заголовку */
+            margin-bottom: 25px;
+            font-size: 28px;
+            color: #a8ffb0;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
         }
         
         .register-box input {
             width: 100%;
-            padding: 12px;
             margin: 10px 0;
-            border: 1px solid #dddddd;
-            /* 🔹 колір рамки полів */
-            border-radius: 8px;
-            font-size: 14px;
-            background: #fafafa;
-            /* 🔹 фон полів */
-            color: #111111;
-            /* 🔹 колір тексту */
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 15px;
+            outline: none;
+            transition: box-shadow 0.3s ease;
         }
         
         .register-box input:focus {
-            border-color: #4f46e5;
-            /* 🔹 колір обведення при фокусі */
-            outline: none;
+            box-shadow: 0 0 10px #00ff80;
         }
         
         .register-box button {
             width: 100%;
+            margin-top: 20px;
             padding: 12px;
-            margin-top: 16px;
-            background: #4f46e5;
-            /* 🔹 колір кнопки */
-            color: #ffffff;
-            /* 🔹 колір тексту на кнопці */
+            background: #00cc88;
+            color: #fff;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             font-size: 16px;
-            font-weight: 600;
             cursor: pointer;
-            transition: 0.3s;
+            transition: background 0.3s, transform 0.2s;
         }
         
         .register-box button:hover {
-            background: #4338ca;
-            /* 🔹 колір кнопки при наведенні */
+            background: #00aa70;
+            transform: scale(1.05);
         }
         
         .register-box p {
-            text-align: center;
-            margin-top: 16px;
+            margin-top: 15px;
             font-size: 14px;
-            color: #555555;
-            /* 🔹 колір тексту під формою */
+            color: #b0c9b5;
         }
         
-        .register-box p a {
-            color: #4f46e5;
-            /* 🔹 колір посилання */
+        .register-box a {
+            color: #00ff99;
             text-decoration: none;
-            font-weight: 600;
         }
         
-        .register-box p a:hover {
+        .register-box a:hover {
             text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
+    <!-- Назва сайту -->
+    <header>Spotifycloud</header>
+
+    <!-- Кнопки у верхньому правому куті -->
+    <div class="top-buttons">
+        <button class="btn" onclick="window.location.href='index.html'">⬅️ На головну</button>
+    </div>
+
+    <!-- Форма реєстрації -->
     <div class="register-box">
-        <h2>Реєстрація</h2>
-        <form>
-            <input type="text" placeholder="Ваше ім’я" required>
-            <input type="email" placeholder="Email" required>
-            <input type="password" placeholder="Пароль" required>
+        <h2>Створити акаунт</h2>
+        <form id="registerForm">
+            <input type="text" id="username" placeholder="Ім'я користувача" required />
+            <input type="email" id="email" placeholder="Email" required />
+            <input type="password" id="password" placeholder="Пароль" required />
             <button type="submit">Зареєструватися</button>
         </form>
-        <p>Вже маєте акаунт? <a href="#">Увійти</a></p>
+        <p>Вже маєш акаунт? <a href="login.html">Увійти</a></p>
     </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('username').value;
+            alert(`✅ Реєстрація успішна, ${name}!`);
+            window.location.href = 'track.html'; // після реєстрації відкриває плеєр
+        });
+    </script>
 </body>
 
 </html>
