@@ -1,167 +1,42 @@
-<!DOCTYPE html>
-<html lang="uk">
+<!-- multistep form -->
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spotifycloud — Реєстрація</title>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: radial-gradient(circle at top, #0c1016 0%, #1a1f29 80%);
-            color: #dfffe0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-        }
-        
-        header {
-            position: fixed;
-            top: 20px;
-            left: 40px;
-            font-size: 26px;
-            font-weight: 600;
-            color: #00ff80;
-            text-shadow: 0 0 12px #00ff80;
-            z-index: 1000;
-        }
-        /* Кнопки у верхньому правому куті */
-        
-        .top-buttons {
-            position: fixed;
-            top: 20px;
-            right: 40px;
-            display: flex;
-            gap: 10px;
-            z-index: 1000;
-        }
-        
-        .btn {
-            background: #00cc88;
-            color: #fff;
-            border: none;
-            border-radius: 12px;
-            padding: 10px 20px;
-            font-size: 15px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(0, 255, 136, 0.4);
-        }
-        
-        .btn:hover {
-            background: #00aa70;
-            transform: scale(1.07);
-            box-shadow: 0 0 15px rgba(0, 255, 136, 0.7);
-        }
-        
-        .register-box {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            box-shadow: 0 0 25px rgba(0, 255, 136, 0.15);
-            padding: 40px 50px;
-            width: 350px;
-            text-align: center;
-            backdrop-filter: blur(6px);
-            margin-top: 100px;
-        }
-        
-        .register-box h2 {
-            margin-bottom: 25px;
-            font-size: 28px;
-            color: #a8ffb0;
-            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
-        }
-        
-        .register-box input {
-            width: 100%;
-            margin: 10px 0;
-            padding: 12px;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            border-radius: 10px;
-            color: #fff;
-            font-size: 15px;
-            outline: none;
-            transition: box-shadow 0.3s ease;
-        }
-        
-        .register-box input:focus {
-            box-shadow: 0 0 10px #00ff80;
-        }
-        
-        .register-box button {
-            width: 100%;
-            margin-top: 20px;
-            padding: 12px;
-            background: #00cc88;
-            color: #fff;
-            border: none;
-            border-radius: 12px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
-        }
-        
-        .register-box button:hover {
-            background: #00aa70;
-            transform: scale(1.05);
-        }
-        
-        .register-box p {
-            margin-top: 15px;
-            font-size: 14px;
-            color: #b0c9b5;
-        }
-        
-        .register-box a {
-            color: #00ff99;
-            text-decoration: none;
-        }
-        
-        .register-box a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" src="style.refister.css">
 </head>
-
-<body>
-    <!-- Назва сайту -->
-    <header>Spotifycloud</header>
-
-    <!-- Кнопки у верхньому правому куті -->
-    <div class="top-buttons">
-        <button class="btn" onclick="window.location.href='index.html'">⬅️ На головну</button>
-    </div>
-
-    <!-- Форма реєстрації -->
-    <div class="register-box">
-        <h2>Створити акаунт</h2>
-        <form id="registerForm">
-            <input type="text" id="username" placeholder="Ім'я користувача" required />
-            <input type="email" id="email" placeholder="Email" required />
-            <input type="password" id="password" placeholder="Пароль" required />
-            <button type="submit">Зареєструватися</button>
-        </form>
-        <p>Вже маєш акаунт? <a href="login.html">Увійти</a></p>
-    </div>
-
-    <script>
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('username').value;
-            alert(`✅ Реєстрація успішна, ${name}!`);
-            window.location.href = 'track.html'; // після реєстрації відкриває плеєр
-        });
-    </script>
-</body>
-
-</html>
+<form id="msform">
+    <!-- progressbar -->
+    <ul id="progressbar">
+        <li class="active">Account Setup</li>
+        <li>Social Profiles</li>
+        <li>Personal Details</li>
+    </ul>
+    <!-- fieldsets -->
+    <fieldset>
+        <h2 class="fs-title">Create your account</h2>
+        <h3 class="fs-subtitle">This is step 1</h3>
+        <input type="text" name="email" placeholder="Email" />
+        <input type="password" name="pass" placeholder="Password" />
+        <input type="password" name="cpass" placeholder="Confirm Password" />
+        <input type="button" name="next" class="next action-button" value="Next" />
+    </fieldset>
+    <fieldset>
+        <h2 class="fs-title">Social Profiles</h2>
+        <h3 class="fs-subtitle">Your presence on the social network</h3>
+        <input type="text" name="twitter" placeholder="Twitter" />
+        <input type="text" name="facebook" placeholder="Facebook" />
+        <input type="text" name="gplus" placeholder="Google Plus" />
+        <input type="button" name="previous" class="previous action-button" value="Previous" />
+        <input type="button" name="next" class="next action-button" value="Next" />
+    </fieldset>
+    <fieldset>
+        <h2 class="fs-title">Personal Details</h2>
+        <h3 class="fs-subtitle">We will never sell it</h3>
+        <input type="text" name="fname" placeholder="First Name" />
+        <input type="text" name="lname" placeholder="Last Name" />
+        <input type="text" name="phone" placeholder="Phone" />
+        <textarea name="address" placeholder="Address"></textarea>
+        <input type="button" name="previous" class="previous action-button" value="Previous" />
+        <a href="https://twitter.com/GoktepeAtakan" class="submit action-button" target="_top">Submit</a>
+    </fieldset>
+</form>
+<script src="register.js"></script>
