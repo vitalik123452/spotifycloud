@@ -168,4 +168,5 @@ body {
 #progressbar li.active:after {
     background: #27AE60;
     color: white;
+    : hover: : after
 }
